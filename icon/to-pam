@@ -1,0 +1,30 @@
+#!/bin/sh -e
+
+cd "$(dirname "$0")"
+scale="$1"
+if [ -z "$scale" ]; then
+    scale=1
+fi
+
+scale_up () {
+    while read -r line; do
+	for i in $(seq $scale); do
+	    echo $line
+	done
+    done | sed -e "s/./$(printf '%*.s' $scale '' | sed 's/ /\&/g')/g"
+}
+
+data="$(cat icon | scale_up)"
+
+width=$(echo "$data" | sed 1q | sed 's/^.//' | wc -c)
+height=$(echo "$data" | wc -l)
+
+echo P7
+echo WIDTH $width
+echo HEIGHT $height
+echo DEPTH 2
+echo MAXVAL 1
+echo TUPLTYPE BLACKANDWHITE_ALPHA
+echo ENDHDR
+echo "$data" | sed -e 's/X/\x00\xFF/g' -e 's/\./\xFF\x00/g' | sed -e ':a;N;$!ba;s/\n//g'
+
