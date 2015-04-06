@@ -3,11 +3,11 @@
 
 include config.mk
 
-OBJ = sit
+CMD = sit sit-status
 
 
 all: sit
-sit: bin/sit
+sit: $(foreach C,${CMD},bin/${C})
 
 bin/%: obj/%.o
 	@echo CC -o $@

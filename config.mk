@@ -12,7 +12,7 @@ LIBS =
 
 # flags
 CPPFLAGS = -D_POSIX_C_SOURCE=2 -DVERSION=\"${VERSION}\"
-CFLAGS   = -std=c99 -pedantic -Wall -Wextra -Os ${INCS} ${CPPFLAGS}
+CFLAGS   = -std=c99 -pedantic -Wall -Wextra -g ${INCS} ${CPPFLAGS}
 LDFLAGS  = -s ${LIBS}
 
 # compiler and linker

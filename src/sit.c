@@ -178,7 +178,7 @@ usage(int exit_value)
 			maxlen = len;
 	}
 
-	prefix = malloc((2 + maxlen) * sizeof(char));
+	prefix = malloc((3 + maxlen) * sizeof(char));
 	if (!prefix)
 		goto fail;
 
