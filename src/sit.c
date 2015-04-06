@@ -109,7 +109,7 @@ synchronous_spawn(const char *file, char *argv[])
 	pid_t pid, reaped;
 	int status;
 
-	pid = vfork();
+	pid = fork();
 	if (!pid) {
 		execvp(file, argv);
 		_exit(1);
