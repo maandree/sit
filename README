@@ -1,0 +1,4 @@
+sit (simple issue tracker) is a simple issue tracker.
+sit integrates with git, and provides the ability to attach
+entries to git branches.
+
