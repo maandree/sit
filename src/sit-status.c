@@ -36,6 +36,7 @@ char *argv0;
 int
 main(int argc, char *argv[])
 {
+	(void) argc;
 	argv0 = *argv;
 
 	if (!strcmp(argv0, "sit")) {
