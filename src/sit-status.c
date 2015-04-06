@@ -27,9 +27,6 @@
 
 
 
-#define VERSION  "1.0"
-
-
 char *argv0;
 
 
