@@ -3,7 +3,7 @@
 
 include config.mk
 
-CMD = sit sit-status
+CMD = sit sit-init sit-status
 
 
 all: sit
