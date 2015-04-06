@@ -1,0 +1,72 @@
+- Anyone with a copy of the repository should have full access to
+  the issue tracker so you will never lose all information in it.
+
+- Anyone with push access to a repository should have full
+  control of the issue tracker offline. That is, developers
+  should be able to browse the issue tracker even without
+  Internet access, and even make edits and additions to it.
+
+- A web front-end should not be neccessary, but having one should
+  allow anyone to create tickets.
+
+- The web front-end's back-end should run programs to
+  access tickets, and not implement everything itself.
+
+- Gopher should be usable to browse the issue tracker.
+  (low priority)
+
+- Issues should by default not be attached to a branch, but
+  they should be attachable to branches.
+
+- It should be possible to subscribe to the ticket system
+  with or without selectors using e-mail, news syndication
+  (e.g. RSS), log files and notifications in the terminal.
+  It should also be easy to add other systems.
+
+- - This can be used to create a static archive.
+
+- The issue tracker should be controllable with e-mail,
+  both by users and moderators.
+  (low priority)
+
+- Users should not need to check out branches to access
+  issues attached to branches.
+
+- N:M milestones.
+
+- Multiple assignees.
+
+- The base should be as small and simple as possible.
+
+- UTF-8 everywhere (some systems do not even support Unicode.)
+
+- A user can have multiple identities, or rather,
+  multiple identities can be grouped to be identified as one user.
+
+- The issue tracker should not automatically close issues it
+  believes have been solved, it is up to the developer to
+  close it when he and the reportee are in agreement that the
+  problem has been solved.
+
+- Discussions are flat, not threaded.
+
+- File attachment support.
+
+- Tickets should have the following tags:
+
+- - Severity
+- - Reporter
+- - Status
+- - Categories
+- - CVE-ID
+- - Branch where the issue is being resolved
+- - Due date
+- - Known affect versions
+- - Known unaffect versions
+- - (any tag mentioned elsewhere)
+
+- Voting to indicate interest in seeing an issue
+  getting resolved.
+
+- Duplicates should be hidden under the original.
+
