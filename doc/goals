@@ -61,6 +61,7 @@
 - - CVE-ID
 - - Branch where the issue is being resolved
 - - Due date
+- - Creation date
 - - Known affect versions
 - - Known unaffect versions
 - - (any tag mentioned elsewhere)
