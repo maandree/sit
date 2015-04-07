@@ -23,8 +23,18 @@
  */
 #include "util.h"
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <uuid.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <errno.h>
+
+
+
+extern char *argv0;
+
 
 
 char *
@@ -40,5 +50,84 @@ generate_uuid(void)
 	uuid_generate_time(raw);
 	uuid_unparse_lower(raw, str);
 	return str;
+}
+
+
+char *
+spawn_read(char *const argv[], int *success)
+{
+	int pipe_rw[] = { -1, -1 };
+	pid_t pid, reaped = -1;
+	int r, saved_errno, status;
+	ssize_t got;
+	size_t size = 0, ptr = 0;
+	char *buf = NULL;
+	char *new;
+
+	*success = 0;
+
+	r = pipe(pipe_rw);
+	if (r)
+		goto fail;
+
+	pid = fork();
+	if (pid < 0)
+		goto fail;
+
+	if (!pid) {
+		close(pipe_rw[0]);
+		if (pipe_rw[1] != STDOUT_FILENO) {
+			close(STDOUT_FILENO);
+			dup2(pipe_rw[1], STDOUT_FILENO);
+			close(pipe_rw[1]);
+		}
+		execvp(*argv, argv);
+		perror(argv0);
+		exit(EXIT_FAILURE);
+	}
+
+	close(pipe_rw[1]);
+	for (;;) {
+		if (size - ptr < 1024) {
+			size = (size ? size : 2048) << 1;
+			new = realloc(buf, size * sizeof(char));
+			if (!new)
+				goto fail;
+			buf = new;
+		}
+		got = read(pipe_rw[0], buf + ptr, (size - ptr) * sizeof(char));
+		if (got < 0) {
+			if (errno == EINTR)
+				continue;
+			else
+				goto fail;
+		} else if (!got) {
+			break;
+		} else {
+			ptr += (size_t)got;
+		}
+	}
+
+	while (reaped != pid) {
+		reaped = waitpid(pid, &status, 0);
+		if (reaped < 0) {
+			if (errno == EINTR)
+				continue;
+			else
+				goto fail;
+		}
+	}
+
+	*success = (status == 0);
+	return buf;
+fail:
+	saved_errno = errno;
+	if (pipe_rw[0] >= 0)
+		close(pipe_rw[0]);
+	if (pipe_rw[1] >= 0)
+		close(pipe_rw[1]);
+	free(buf);
+	errno = saved_errno;
+	return NULL;
 }
 

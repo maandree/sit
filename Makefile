@@ -6,13 +6,13 @@ include config.mk
 CMD = sit sit-init sit-status
 
 
-all: sit obj/util.o
+all: sit
 sit: $(foreach C,${CMD},bin/${C})
 
-bin/%: obj/%.o
+bin/%: obj/%.o obj/util.o
 	@echo CC -o $@
 	@mkdir -p bin
-	@${CC} -o $@ $< ${LDFLAGS}
+	@${CC} -o $@ $^ ${LDFLAGS}
 
 obj/%.o: src/%.c src/*.h
 	@echo CC -c $<

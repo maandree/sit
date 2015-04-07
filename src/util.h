@@ -26,6 +26,7 @@
 
 
 char *generate_uuid(void);
+char *spawn_read(char *const argv[], int *success);
 
 
 #endif
