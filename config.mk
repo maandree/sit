@@ -7,8 +7,8 @@ VERSION = 1.0
 PREFIX = /usr/local
 
 # includes and libs
-INCS =
-LIBS =
+INCS = $$(pkg-config --cflags uuid)
+LIBS = $$(pkg-config --libs uuid)
 
 # flags
 CPPFLAGS = -D_POSIX_C_SOURCE=2 -DVERSION=\"${VERSION}\"
