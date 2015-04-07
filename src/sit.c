@@ -138,7 +138,7 @@ usage(int exit_value)
 	size_t i, maxlen = 0, len;
 	char *prefix = NULL;
 	char *last_success = NULL;
-	char* argv[3];
+	char *argv[3];
 
 	path = getenv("PATH");
 	if (!path || !*path) {
