@@ -118,6 +118,12 @@ spawn_read(char *const argv[], int *success)
 		}
 	}
 
+	new = realloc(buf, (ptr + 1) * sizeof(char));
+	if (!new)
+		goto fail;
+	buf = new;
+	buf[ptr] = 0;
+
 	*success = (status == 0);
 	return buf;
 fail:
