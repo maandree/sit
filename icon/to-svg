@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+# -*- python -*-
+
+# svg is messed up, so we will cheat draw overlapping
+# lines (if we just translated to pixels to blocks,
+# renderers would fail when zooming in.)
+
+
+import sys
+
+data = '/'.join(sys.argv[0].split('/')[:-1]) + '/icon'
+with open(data, 'rb') as file:
+    data = file.read().decode('utf-8', 'strict')
+
+scale  = int(sys.argv[1]) if len(sys.argv) > 1 else 1
+data   = [[c == 'X' for c in line] for line in data.split('\n') if not line == '']
+height = len(data)
+width  = len(data[0])
+cover  = [[0] * width for _ in range(height)]
+vert   = []
+horz   = []
+blocks = []
+
+for x in range(width):
+    start = 0
+    expect = True
+    for y in range(height):
+        cover[y][x] += 1 if data[y][x] else 0
+        if not data[y][x] == expect:
+            vert.append((x, start, 1, y - start))
+            expect, start = not expect, y
+    vert.append((x, start, 1, y - start + 1))
+
+for y in range(height):
+    start = 0
+    expect = True
+    for x in range(width):
+        cover[y][x] += 1 if data[y][x] else 0
+        if not data[y][x] == expect:
+            horz.append((start, y, x - start, 1))
+            expect, start = not expect, x
+    horz.append((start, y, x - start + 1, 1))
+
+for x, y, w, h in vert + horz:
+    if w and h and data[y][x]:
+        if w == h and cover[y][x] > 1:
+            cover[y][x] -= 1
+        else:
+            blocks.append((x, y, w, h))
+
+print('<?xml version="1.0" encoding="UTF-8" standalone="no"?>')
+print('<svg')
+print('   xmlns:svg="http://www.w3.org/2000/svg"')
+print('   xmlns="http://www.w3.org/2000/svg"')
+print('   width="%i"' % (width * scale))
+print('   height="%i"' % (height * scale))
+print('   id="svg2"')
+print('   version="1.1">')
+print('  <g id="layer1">')
+for i, (x, y, w, h) in enumerate(blocks):
+    x, y, w, h = x * scale, y * scale, w * scale, h * scale
+    print('    <path')
+    print('       style="fill:#000000"')
+    print('       d="m %i %i %i,0 0,%i -%i,0 0,-%i z"' % (x, y, w, h, w, h))
+    print('       id="path%i"/>' % i)
+print('  </g>')
+print('</svg>')
+
