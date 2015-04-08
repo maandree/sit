@@ -39,8 +39,8 @@ main(int argc, char *argv[])
 	argv0 = *argv;
 
 	if (!strcmp(argv0, "sit")) {
-		fprintf(stderr, "%s%s", argv[1],
-			"Initialise the branch and repository for issue tracking\n");
+		fprintf(stderr, "%s%s\n", argv[1],
+			"Initialise the branch and repository for issue tracking");
 		return EXIT_SUCCESS;
 	}
 

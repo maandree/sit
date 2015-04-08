@@ -39,8 +39,8 @@ main(int argc, char *argv[])
 	argv0 = *argv;
 
 	if (!strcmp(argv0, "sit")) {
-		fprintf(stderr, "%s%s", argv[1],
-			"Add, remove or list milestones an issue is listed under\n");
+		fprintf(stderr, "%s%s\n", argv[1],
+			"Add, remove or list milestones an issue is listed under");
 		return EXIT_SUCCESS;
 	}
 
