@@ -40,7 +40,7 @@ main(int argc, char *argv[])
 
 	if (!strcmp(argv0, "sit")) {
 		fprintf(stderr, "%s%s\n", argv[1],
-			"Set or get due date of an issue");
+			"Set or get the due date of an issue");
 		return EXIT_SUCCESS;
 	}
 
