@@ -58,12 +58,12 @@
 - - Reporter
 - - Status
 - - Categories
-- - CVE-ID
+- - CVE-ID:s
 - - Branch where the issue is being resolved
 - - Due date
 - - Creation date
-- - Known affect versions
-- - Known unaffect versions
+- - Known affected versions
+- - Known unaffected versions
 - - (any tag mentioned elsewhere)
 
 - Voting to indicate interest in seeing an issue

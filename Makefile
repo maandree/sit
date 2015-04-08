@@ -3,7 +3,9 @@
 
 include config.mk
 
-CMD = sit sit-init sit-status
+CMD = sit sit-affected sit-assignee sit-birth sit-category sit-cve \
+      sit-due sit-death sit-init sit-milestone sit-reporter \
+      sit-severity sit-status sit-unaffected
 
 
 all: sit

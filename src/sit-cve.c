@@ -25,6 +25,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "util.h"
+
 
 
 char *argv0;
@@ -38,7 +40,7 @@ main(int argc, char *argv[])
 
 	if (!strcmp(argv0, "sit")) {
 		fprintf(stderr, "%s%s", argv[1],
-			"Set or get the status os an issue, or show the issue tracker status\n");
+			"Add, remove or list CVE-ID:s of an issue\n");
 		return EXIT_SUCCESS;
 	}
 
