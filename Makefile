@@ -5,7 +5,8 @@ include config.mk
 
 CMD = sit sit-affected sit-assignee sit-birth sit-category sit-cve \
       sit-due sit-death sit-init sit-milestone sit-reporter \
-      sit-severity sit-status sit-title sit-unaffected
+      sit-severity sit-status sit-title sit-unaffected sit-unvote \
+      sit-vote sit-votes
 
 
 all: sit
