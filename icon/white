@@ -1,0 +1,28 @@
+#!/bin/sh
+
+colour="$1"
+if [ -z "$colour" ]; then
+    colour="FFFFFF"
+fi
+
+data="$(cat | sed -e 's/\x00/0/g' -e 's/\xFF/1/g')"
+
+if echo "${data}" | sed 7q | grep '<svg' >/dev/null; then
+    echo "${data}" | sed "s/#000000/#${colour}/g"
+elif echo "${data::2}" | grep P7 >/dev/null; then
+    r='\x'"${colour:0:2}"
+    g='\x'"${colour:2:2}"
+    b='\x'"${colour:4:2}"
+    colour="$r$g$b"
+    headers="$(echo "${data}" | sed 7q)"
+    data="$(echo "${data}" | sed 1,7d)"
+    echo "${headers}" | sed -e 's/^DEPTH .$/DEPTH 4/' \
+			    -e 's/^MAXVAL .*$/MAXVAL 255/' \
+			    -e 's/^TUPLTYPE .*$/TUPLTYPE RGB_ALPHA/'
+    echo "${data}" | sed 's/../& /g' | sed -e 's/01 /'"${colour}"'\xFF/g' \
+					   -e 's/10 /\x00\x00\x00\x00/g'
+else
+    echo "$0: can only modify PAM and SVG images" >&2
+    exit 1
+fi
+
