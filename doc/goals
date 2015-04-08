@@ -48,6 +48,9 @@
   close it when he and the reportee are in agreement that the
   problem has been solved.
 
+- Closed issues are closed, reopening require editing
+  the issue tracker's files manually.
+
 - Discussions are flat, not threaded.
 
 - File attachment support.
