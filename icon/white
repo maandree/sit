@@ -7,7 +7,7 @@ fi
 
 data="$(cat | sed -e 's/\x00/0/g' -e 's/\xFF/1/g')"
 
-if echo "${data}" | sed 7q | grep '<svg' >/dev/null; then
+if echo "${data}" | sed 7q | grep '<''svg' >/dev/null; then
     echo "${data}" | sed "s/#000000/#${colour}/g"
 elif echo "${data::2}" | grep P7 >/dev/null; then
     r='\x'"${colour:0:2}"
