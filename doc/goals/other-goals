@@ -1,0 +1,34 @@
+- Issues should by default not be attached to a branch, but
+  they should be attachable to branches.
+
+- Users should not need to check out branches to access
+  issues attached to branches.
+
+- N:M milestones.
+
+- Multiple assignees.
+
+- A user can have multiple identities, or rather,
+  multiple identities can be grouped to be identified as one user.
+
+- File attachment support.
+
+- Tickets should have the following tags:
+
+- - Severity
+- - Reporter
+- - Status
+- - Categories
+- - CVE-ID:s
+- - Branch where the issue is being resolved
+- - Due date
+- - Creation date
+- - Known affected versions
+- - Known unaffected versions
+- - (any tag mentioned elsewhere)
+
+- Voting to indicate interest in seeing an issue
+  getting resolved.
+
+- Duplicates should be hidden under the original.
+

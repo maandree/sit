@@ -1,0 +1,12 @@
+- Anyone with a copy of the repository should have full access to
+  the issue tracker so you will never lose all information in it.
+
+- Anyone with push access to a repository should have full
+  control of the issue tracker offline. That is, developers
+  should be able to browse the issue tracker even without
+  Internet access, and even make edits and additions to it.
+
+- The base should be as small and simple as possible.
+
+- UTF-8 everywhere (some systems do not even support Unicode.)
+

@@ -1,0 +1,20 @@
+- The front-ends' back-ends should run programs to
+  access tickets, and not implement everything themself.
+
+- A web front-end should not be neccessary, but having one should
+  allow anyone to create tickets.
+
+- Gopher should be usable to browse the issue tracker.
+  (low priority)
+
+- It should be possible to subscribe to the ticket system
+  with or without selectors using e-mail, news syndication
+  (e.g. RSS), log files and notifications in the terminal.
+  It should also be easy to add other systems.
+
+- - This can be used to create a static archive.
+
+- The issue tracker should be controllable with e-mail,
+  both by users and moderators.
+  (low priority)
+
