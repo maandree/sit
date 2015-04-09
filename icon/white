@@ -9,7 +9,7 @@ data="$(cat | sed -e 's/\x00/0/g' -e 's/\xFF/1/g')"
 
 if echo "${data}" | sed 7q | grep '<''svg' >/dev/null; then
     echo "${data}" | sed "s/#000000/#${colour}/g"
-elif echo "${data::2}" | grep P7 >/dev/null; then
+elif [ "${data::2}" = P7 ]; then
     r='\x'"${colour:0:2}"
     g='\x'"${colour:2:2}"
     b='\x'"${colour:4:2}"
