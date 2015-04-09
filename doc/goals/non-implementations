@@ -8,3 +8,14 @@
 
 - Discussions are flat, not threaded.
 
+- All timestamps are in Unix time, and there is not time
+  string parsing. (Front-ends are exempt.)
+
+- - If you want to for example set a date to "next month 00:00",
+    you will have to use an external tool. If you have GNU
+    coreutils you can type `$(date -d "next month 00:00" +%s)`.
+
+- - If you want to a timestamp to be represent in human-readable
+    form, you will have to convert it with an external tool. If
+    you have GNU coreutils you can type `date -d @$TIMESTAMP`.
+
