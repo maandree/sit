@@ -12,4 +12,7 @@ obj/
 *.o
 *.su
 *.gch
+*.pam
+*.svg
+*.png
 
