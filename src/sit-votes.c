@@ -38,11 +38,7 @@ main(int argc, char *argv[])
 	(void) argc;
 	argv0 = *argv;
 
-	if (!strcmp(argv0, "sit")) {
-		fprintf(stderr, "%s%s\n", argv[1],
-			"Count the number of votes an issue have");
-		return EXIT_SUCCESS;
-	}
+	PURPOSE("Count the number of votes an issue have");
 
 	return EXIT_SUCCESS;
 }

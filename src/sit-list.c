@@ -38,11 +38,7 @@ main(int argc, char *argv[])
 	(void) argc;
 	argv0 = *argv;
 
-	if (!strcmp(argv0, "sit")) {
-		fprintf(stderr, "%s%s\n", argv[1],
-			"List all issues");
-		return EXIT_SUCCESS;
-	}
+	PURPOSE("List all issues");
 
 	return EXIT_SUCCESS;
 }

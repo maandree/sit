@@ -25,6 +25,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "util.h"
+
 
 
 char *argv0;
@@ -36,11 +38,7 @@ main(int argc, char *argv[])
 	(void) argc;
 	argv0 = *argv;
 
-	if (!strcmp(argv0, "sit")) {
-		fprintf(stderr, "%s%s\n", argv[1],
-			"Set or get the status os an issue, or show the issue tracker status");
-		return EXIT_SUCCESS;
-	}
+	PURPOSE("Set or get the status os an issue, or show the issue tracker status");
 
 	return EXIT_SUCCESS;
 }

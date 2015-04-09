@@ -25,8 +25,20 @@
 #define SIT_UTIL_H
 
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+
+#define PURPOSE(TEXT) \
+	(strcmp(argv[0], "sit") ? 0 : \
+	 (fprintf(stderr, "%s%s\n", argv[1], TEXT), exit(EXIT_SUCCESS), 0))
+
+
 char *generate_uuid(void);
 char *spawn_read(char *const argv[], int *success);
+
 
 
 #endif

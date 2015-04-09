@@ -38,11 +38,7 @@ main(int argc, char *argv[])
 	(void) argc;
 	argv0 = *argv;
 
-	if (!strcmp(argv0, "sit")) {
-		fprintf(stderr, "%s%s\n", argv[1],
-			"Add, remove or list CVE-ID:s of an issue");
-		return EXIT_SUCCESS;
-	}
+	PURPOSE("Add, remove or list CVE-ID:s of an issue");
 
 	return EXIT_SUCCESS;
 }

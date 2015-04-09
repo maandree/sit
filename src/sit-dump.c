@@ -38,11 +38,7 @@ main(int argc, char *argv[])
 	(void) argc;
 	argv0 = *argv;
 
-	if (!strcmp(argv0, "sit")) {
-		fprintf(stderr, "%s%s\n", argv[1],
-			"Dump the entire issue store in an easily grep:able format for searching");
-		return EXIT_SUCCESS;
-	}
+	PURPOSE("Dump the entire issue store in an easily grep:able format for searching");
 
 	return EXIT_SUCCESS;
 }
