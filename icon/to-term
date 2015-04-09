@@ -1,5 +1,4 @@
 #!/bin/sh -e
 
-cd "$(dirname "$0")"
-cat icon | sed -e 's/\./  /g' -e 's/X/\x1b[07m  \x1b[27m/g'
+sed -e 's/\./  /g' -e 's/X/\x1b[07m  \x1b[27m/g'
 

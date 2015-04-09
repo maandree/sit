@@ -1,6 +1,5 @@
 #!/bin/sh -e
 
-cd "$(dirname "$0")"
 scale="$1"
 if [ -z "$scale" ]; then
     scale=1
@@ -14,7 +13,7 @@ scale_up () {
     done | sed -e "s/./$(printf '%*.s' $scale '' | sed 's/ /\&/g')/g"
 }
 
-data="$(cat icon | scale_up)"
+data="$(cat | scale_up)"
 
 width=$(echo "$data" | sed 1q | sed 's/^.//' | wc -c)
 height=$(echo "$data" | wc -l)
