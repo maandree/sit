@@ -1,0 +1,61 @@
+  Ticket item:
+Each ticket is stored as a directory of files.
+The filename of this directory is the issue ID.
+Each tags is stored as a file in this this directory.
+        affected
+		Line-by-line list of known affected versions
+		of the program. A line is formatted
+			<first version>..<last version>
+		Note that if the range only covers one version
+		the format will effectively be
+			<version>..<version>
+	assignee
+		Plain text line-by-line list of categories.
+	birth
+		Single line file with the unix timestamp of the
+		time when the issue was created.
+	category
+		Plain text line-by-line list of categories.
+	cve
+		Plain text line-by-line list of CVE-ID numbers
+		the ticket covers.
+	death
+		Single line file with the unix timestamp of the
+		time when the issue was closed. If the issue
+		is open, this file does not exist.
+	due
+		Single line file with the unix timestamp of the
+		time when the issue is due to be resolved.
+	milestone
+		Plain text line-by-line list of milestones
+		what the issue is listed under.
+	reporter
+		Single line: <name> \<<e-mail>\>
+	severity
+		Single line file with the severity in text format.
+	status
+		Single line file with the status in text format.
+		In case of a duplicate: the format is:
+			Duplicate: <original-issue-id>
+	title
+		Single line with the ticket's title.
+	unaffected
+		Line-by-line list of known unaffected versions
+		of the program. A line is formatted
+			<first version>..<last version>
+		Note that if the range only covers one version
+		the format will effectively be
+			<version>..<version>
+Note that the names are names as the commands used to examine them.
+Additionally the ticket's directory contain:
+	votes/
+		Note that this is a directory.
+		This directory contains one file per vote.
+		A file's filename is the e-mail of the voter.
+		And the file contains a single line with the
+		voter's name.
+		Be aware that /[A-Za-z9-0.@_+-]*/ does not cover the
+		e-mail address syntax, and that the local part can
+		in fact contains spaces and Unicode characters.
+Each file ends with an LF.
+
