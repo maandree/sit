@@ -167,7 +167,7 @@ usage(int exit_value)
 	}
 
 	qsort(commands, commands_ptr, sizeof(char *), cmpstrp);
-	/* TODO change to a stabil sort, like merge sort */
+	/* TODO change to a stable sort, like merge sort */
 
 	fprintf(stderr, "usage: %s [--version] [--help] <command> [<args>]\n\n", argv0);
 	fprintf(stderr, "available sit commands:\n");
