@@ -35,10 +35,9 @@ char *argv0;
 int
 main(int argc, char *argv[])
 {
-	(void) argc;
 	argv0 = *argv;
 
-	PURPOSE("Count the number of votes an issue have");
+	HELP("Count the number of votes an issue have");
 
 	return EXIT_SUCCESS;
 }

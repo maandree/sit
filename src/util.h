@@ -31,14 +31,16 @@
 
 
 
-#define PURPOSE(TEXT) \
-	(strcmp(argv[0], "sit") ? 0 : \
+#define HELP(TEXT) \
+	(strcmp(argv[0], "sit") ? \
+	 (test_help(argc, argv) ? (usage(__FILE__), 0) : 0) : \
 	 (fprintf(stderr, "%s%s\n", argv[1], TEXT), exit(EXIT_SUCCESS), 0))
 
 
 char *generate_uuid(void);
 char *spawn_read(char *const argv[], int *success);
-
+int test_help(int argc, char *argv[]);
+void usage(char *source_file);
 
 
 #endif

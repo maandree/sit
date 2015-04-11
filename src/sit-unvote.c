@@ -35,10 +35,9 @@ char *argv0;
 int
 main(int argc, char *argv[])
 {
-	(void) argc;
 	argv0 = *argv;
 
-	PURPOSE("Undeclare your interest seeing an issue resolved");
+	HELP("Undeclare your interest seeing an issue resolved");
 
 	return EXIT_SUCCESS;
 }

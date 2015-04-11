@@ -35,10 +35,9 @@ char *argv0;
 int
 main(int argc, char *argv[])
 {
-	(void) argc;
 	argv0 = *argv;
 
-	PURPOSE("Add, remove or list milestones an issue is listed under");
+	HELP("Add, remove or list milestones an issue is listed under");
 
 	return EXIT_SUCCESS;
 }

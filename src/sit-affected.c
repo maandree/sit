@@ -35,10 +35,9 @@ char *argv0;
 int
 main(int argc, char *argv[])
 {
-	(void) argc;
 	argv0 = *argv;
 
-	PURPOSE("Add, remove or list known affected versions of the program for an issue");
+	HELP("Add, remove or list known affected versions of the program for an issue");
 
 	return EXIT_SUCCESS;
 }

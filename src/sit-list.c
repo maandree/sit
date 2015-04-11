@@ -35,10 +35,9 @@ char *argv0;
 int
 main(int argc, char *argv[])
 {
-	(void) argc;
 	argv0 = *argv;
 
-	PURPOSE("List all issues");
+	HELP("List all issues");
 
 	return EXIT_SUCCESS;
 }

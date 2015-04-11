@@ -35,10 +35,9 @@ char *argv0;
 int
 main(int argc, char *argv[])
 {
-	(void) argc;
 	argv0 = *argv;
 
-	PURPOSE("Close an issue");
+	HELP("Close an issue");
 
 	return EXIT_SUCCESS;
 }

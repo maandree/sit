@@ -35,10 +35,9 @@ char *argv0;
 int
 main(int argc, char *argv[])
 {
-	(void) argc;
 	argv0 = *argv;
 
-	PURPOSE("Add, remove or list CVE-ID:s of an issue");
+	HELP("Add, remove or list CVE-ID:s of an issue");
 
 	return EXIT_SUCCESS;
 }

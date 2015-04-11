@@ -137,3 +137,24 @@ fail:
 	return NULL;
 }
 
+
+int test_help(int argc, char *argv[])
+{
+  int i;
+  for (i = 1; i < argc; i++)
+    if (!strcmp(argv[i], "--help") || !strcmp(argv[i], "help"))
+      return 1;
+  return 0;
+}
+
+
+void usage(char *source_file)
+{
+  char command[128];
+  snprintf(command, strlen(source_file) - 1, "%s", source_file);
+  
+  execlp("man", "man", strrchr(command, '/') + 1, NULL);
+  perror(argv0);
+  exit(EXIT_FAILURE);
+}
+

@@ -35,10 +35,9 @@ char *argv0;
 int
 main(int argc, char *argv[])
 {
-	(void) argc;
 	argv0 = *argv;
 
-	PURPOSE("Set or get the status os an issue, or show the issue tracker status");
+	HELP("Set or get the status os an issue, or show the issue tracker status");
 
 	return EXIT_SUCCESS;
 }

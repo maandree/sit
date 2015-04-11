@@ -35,10 +35,9 @@ char *argv0;
 int
 main(int argc, char *argv[])
 {
-	(void) argc;
 	argv0 = *argv;
 
-	PURPOSE("Dump the entire issue store in an easily grep:able format for searching");
+	HELP("Dump the entire issue store in an easily grep:able format for searching");
 
 	return EXIT_SUCCESS;
 }

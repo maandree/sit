@@ -35,10 +35,9 @@ char *argv0;
 int
 main(int argc, char *argv[])
 {
-	(void) argc;
 	argv0 = *argv;
 
-	PURPOSE("Set or get the creation date of an issue");
+	HELP("Set or get the creation date of an issue");
 
 	return EXIT_SUCCESS;
 }

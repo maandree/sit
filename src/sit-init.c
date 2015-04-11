@@ -35,10 +35,9 @@ char *argv0;
 int
 main(int argc, char *argv[])
 {
-	(void) argc;
 	argv0 = *argv;
 
-	PURPOSE("Initialise the branch and repository for issue tracking");
+	HELP("Initialise the branch and repository for issue tracking");
 
 	return EXIT_SUCCESS;
 }
