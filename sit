@@ -1,0 +1,13 @@
+#!/bin/sh
+
+PATH="$(dirname "$0")/bin:${PATH}"
+MANPATH="$(dirname "$0")/bin"
+
+unlink -- "${MANPATH}/man1" 2>/dev/null || true
+ln -s -- . "${MANPATH}/man1"
+
+export PATH
+export MANPATH
+
+exec bin/sit "$@"
+
