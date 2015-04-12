@@ -1,0 +1,11 @@
+#!/bin/sh
+
+cd "$(dirname "$0")/../.."
+
+data="$(cat)"
+command=$(echo "${data}" | sed 1q | cut -d ' ' -f 2 | dd conv=lcase 2>/dev/null)
+
+echo "${data}" | \
+sed -e "s/%VERSION%/${VERSION}/g" \
+    -e "s/%DESCRIPTION%/$(sed -n 's/^.*HELP("\(.*\)");.*$/\1/p' < src/${command}.c)/g"
+

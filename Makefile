@@ -9,8 +9,16 @@ CMD = sit sit-affected sit-assignee sit-birth sit-category sit-close \
       sit-unaffected sit-unvote sit-vote sit-votes
 
 
-all: sit
+all: sit doc
+doc: man
+
 sit: $(foreach C,${CMD},bin/${C})
+man: $(foreach C,${CMD},bin/${C}.1)
+
+bin/%.1: doc/man1/%.1 src/%.c doc/man1/generate
+	@echo MAN $*.1
+	@mkdir -p bin
+	@env VERSION=${VERSION} doc/man1/generate < $< > $@
 
 bin/%: obj/%.o obj/util.o
 	@echo CC -o $@
