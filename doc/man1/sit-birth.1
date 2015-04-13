@@ -3,3 +3,28 @@
 sit-birth \- %DESCRIPTION%
 .SH SYNOPSIS
 .B sit birth
+.IR command
+.IR [option...]
+.IR ticket-id
+[--]
+.IR [unix-timestamp]
+.SH COMMANDS
+.TP
+.B set
+Set the time (in seconds since Epoch) when
+the issue was created.
+.TP
+.B get
+Get the time when the issue was created.
+.SH OPTIONS
+.TP
+.B \-p
+Print ticket's ID at the beginning of the line.
+Only usable with \fBget\fP.
+.SH AUTHORS
+See the LICENSE file for the authors.
+.SH LICENSE
+See the LICENSE file for the terms of redistribution.
+.SH BUGS
+Please report them.
+
