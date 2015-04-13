@@ -3,3 +3,35 @@
 sit-cve \- %DESCRIPTION%
 .SH SYNOPSIS
 .B sit cve
+.IR command
+.IR [option...]
+.IR ticket-id
+[--]
+.IR [cve-id...]
+.SH COMMANDS
+.TP
+.B add
+Associate one or more CVE-ID:s with a ticket.
+.TP
+.B remove
+Disassociate one or more CVE-ID:s with a ticket.
+.TP
+.B list
+List all CVE-ID:s associated with a ticket.
+.SH OPTIONS
+.TP
+.B \-c
+Fail if one of the added CVE-ID:s is already in the list,
+or if one of the removed CVE-ID:s is not in the list.
+Only usable with \fBadd\fP and \fBremove\fP.
+.TP
+.B \-p
+Print ticket's ID at the beginning of the each line.
+Only usable with \fBlist\fP.
+.SH AUTHORS
+See the LICENSE file for the authors.
+.SH LICENSE
+See the LICENSE file for the terms of redistribution.
+.SH BUGS
+Please report them.
+
