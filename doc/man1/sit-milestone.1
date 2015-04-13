@@ -3,3 +3,35 @@
 sit-milestone \- %DESCRIPTION%
 .SH SYNOPSIS
 .B sit milestone
+.IR command
+.IR [option...]
+.IR ticket-id
+[--]
+.IR [milestone...]
+.SH COMMANDS
+.TP
+.B add
+Associate one or more milestones with a ticket.
+.TP
+.B remove
+Disassociate one or more milestones with a ticket.
+.TP
+.B list
+List all milestons associated with a ticket.
+.SH OPTIONS
+.TP
+.B \-c
+Fail if one of the added milestones is already in the list,
+or if one of the removed milestones is not in the list.
+Only usable with \fBadd\fP and \fBremove\fP.
+.TP
+.B \-p
+Print ticket's ID at the beginning of the each line.
+Only usable with \fBlist\fP.
+.SH AUTHORS
+See the LICENSE file for the authors.
+.SH LICENSE
+See the LICENSE file for the terms of redistribution.
+.SH BUGS
+Please report them.
+
