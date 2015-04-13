@@ -3,3 +3,35 @@
 sit-category \- %DESCRIPTION%
 .SH SYNOPSIS
 .B sit category
+.IR command
+.IR [option...]
+.IR ticket-id
+[--]
+.IR [category...]
+.SH COMMANDS
+.TP
+.B add
+Add one or more categories to a ticket.
+.TP
+.B remove
+Remove one or more categories from a ticket.
+.TP
+.B list
+List all categories associated with a ticket.
+.SH OPTIONS
+.TP
+.B \-c
+Fail if one of the added categories is already in the list,
+or if one of the removed categories is not in the list.
+Only usable with \fBadd\fP and \fBremove\fP.
+.TP
+.B \-p
+Print ticket's ID at the beginning of the each line.
+Only usable with \fBlist\fP.
+.SH AUTHORS
+See the LICENSE file for the authors.
+.SH LICENSE
+See the LICENSE file for the terms of redistribution.
+.SH BUGS
+Please report them.
+
