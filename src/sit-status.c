@@ -37,7 +37,7 @@ main(int argc, char *argv[])
 {
 	argv0 = *argv;
 
-	HELP("Set or get the status os an issue, or show the issue tracker status");
+	HELP("Set or get the status of an issue, or show the issue tracker status");
 
 	return EXIT_SUCCESS;
 }
