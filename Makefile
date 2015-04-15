@@ -35,5 +35,5 @@ clean:
 	@echo cleaning
 	@-rm -rf obj bin
 
-.PHONY: all sit clean install uninstall
+.PHONY: all doc sit man clean install uninstall
 
