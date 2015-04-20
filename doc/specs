@@ -14,6 +14,9 @@ Each tags is stored as a file in this this directory.
 	birth
 		Single line file with the unix timestamp of the
 		time when the issue was created.
+	branch
+		Line-by-line list of branches, by ID, what are
+		affected by the issue.
 	category
 		Plain text line-by-line list of categories.
 	cve
@@ -29,6 +32,9 @@ Each tags is stored as a file in this this directory.
 	milestone
 		Plain text line-by-line list of milestones
 		what the issue is listed under.
+	progress
+		Line-by-line list of the name of the branches where
+		the issue is being resolved.
 	reporter
 		Single line: <name> \<<e-mail>\>
 	severity
