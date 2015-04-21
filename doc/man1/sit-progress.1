@@ -3,3 +3,35 @@
 sit-progress \- %DESCRIPTION%
 .SH SYNOPSIS
 .B sit progress
+.IR command
+.IR [option...]
+.IR ticket-id
+[--]
+.IR [branch...]
+.SH COMMANDS
+.TP
+.B add
+Add one or more branches to a ticket's progress of resolution.
+.TP
+.B remove
+Remove one or more branches from a ticket's progress of resolution.
+.TP
+.B list
+List all branches associated with a ticket's progress of resolution.
+.SH OPTIONS
+.TP
+.B \-c
+Fail if one of the added branches is already in the list,
+or if one of the removed branches is not in the list.
+Only usable with \fBadd\fP and \fBremove\fP.
+.TP
+.B \-p
+Print ticket's ID at the beginning of each line.
+Only usable with \fBlist\fP.
+.SH AUTHORS
+See the LICENSE file for the authors.
+.SH LICENSE
+See the LICENSE file for the terms of redistribution.
+.SH BUGS
+Please report them.
+
