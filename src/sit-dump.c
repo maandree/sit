@@ -37,7 +37,7 @@ main(int argc, char *argv[])
 {
 	argv0 = *argv;
 
-	HELP("Dump the entire issue store in an easily grep:able format for searching");
+	HELP("Dump the entire issue storage in an easily grep:able format for searching");
 
 	return EXIT_SUCCESS;
 }
