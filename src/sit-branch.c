@@ -37,7 +37,7 @@ main(int argc, char *argv[])
 {
 	argv0 = *argv;
 
-	HELP("Add, remove or list branches affected by an issue, or resolve branch ID:s");
+	HELP("Add, remove or list branches affected by an issue");
 
 	return EXIT_SUCCESS;
 }
