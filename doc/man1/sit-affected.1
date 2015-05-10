@@ -3,3 +3,33 @@
 sit-affected \- %DESCRIPTION%
 .SH SYNOPSIS
 .B sit affected
+.IR [command]
+.IR [option...]
+.IR [ticket-id]
+[--]
+.IR [first[..last]]
+.SH COMMANDS
+.TP
+.B add
+Add version \fIfirst\fP or \fIfirst\fP through \fIflist\fP,
+to the list of affected versions.
+.TP
+.B remove
+Remove version \fIfirst\fP or \fIfirst\fP through \fIflist\fP,
+to the list of affected versions.
+.TP
+.B list
+List all affected versions.
+.SH OPTIONS
+.TP
+.B \-s
+Print all affected versions on separate lines, instead of
+printing ranges of versions on separate lines.
+Only usable with \fBlist\fP.
+.SH AUTHORS
+See the LICENSE file for the authors.
+.SH LICENSE
+See the LICENSE file for the terms of redistribution.
+.SH BUGS
+Please report them.
+
