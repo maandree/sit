@@ -7,7 +7,7 @@ CMD = sit sit-affected sit-assignee sit-birth sit-branch sit-category \
       sit-close sit-cve sit-due sit-duplicate sit-dump sit-death \
       sit-init sit-list sit-milestone sit-new sit-progress sit-reporter \
       sit-severity sit-status sit-title sit-unaffected sit-unvote \
-      sit-vote sit-votes
+      sit-versions sit-vote sit-votes
 
 
 all: sit doc

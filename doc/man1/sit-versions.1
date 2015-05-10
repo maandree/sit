@@ -1,0 +1,18 @@
+.TH SIT-VERSIONS 1 sit\-%VERSION%
+.SH NAME
+sit-versions \- %DESCRIPTION%
+.SH SYNOPSIS
+.B sit versions
+.SH DESCRIPTION
+\fBsit-versions\fP enables \fBsit\fP tools to
+list all verions in sorted and grouped order.
+Unless set up otherwise, \fIgit tag -l
+--sort=version:refname | sed s/^v//\fP, is used
+to get a list of all versions in order.
+\fBsit-versions\fP is used to set up another
+way to sort the versions. This can be used
+for example if you have a portable and an
+unportable version. In such case, you probably
+prefer to list all unportable versions first
+and then all unportable versions, so the range
+1.0..1.1 does not cover 1.0p1.
