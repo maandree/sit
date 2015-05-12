@@ -3,6 +3,9 @@
 sit-versions \- %DESCRIPTION%
 .SH SYNOPSIS
 .B sit versions
+.IR command
+[--]
+.IR [file]
 .SH DESCRIPTION
 \fBsit-versions\fP enables \fBsit\fP tools to
 list all verions in sorted and grouped order.
@@ -16,3 +19,23 @@ unportable version. In such case, you probably
 prefer to list all unportable versions first
 and then all unportable versions, so the range
 1.0..1.1 does not cover 1.0p1.
+.SH COMMANDS
+.TP
+.B set
+Set the version listing script to \fBfile\fP.
+The file will be copied to the issue tracker.
+.TP
+.B unset
+Remove the version listing script, and use
+the default method instead.
+.TP
+.B list
+List all verions of the project, in ascending
+order.
+.SH AUTHORS
+See the LICENSE file for the authors.
+.SH LICENSE
+See the LICENSE file for the terms of redistribution.
+.SH BUGS
+Please report them.
+
