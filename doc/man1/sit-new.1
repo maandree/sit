@@ -3,3 +3,69 @@
 sit-new \- %DESCRIPTION%
 .SH SYNOPSIS
 .B sit new
+.IR [option...]
+[--]
+.IR title
+.SH DESCRIPTION
+\fBsit new\fP creates a new issue, and prints the
+new ticket ID to stdout.
+.PP
+This command will automatically set the title to
+\fItitle\fP, the reporter to the creator of the
+issue, and the creation time to the current time.
+.SH OPTIONS
+.TP
+.B \-a \fIfirst-affected[..last-affected]\fP
+Declare that version \fIfirst-affected\fP, or the
+version range \fIfirst-affected\fP to \fIlast-affected\fP,
+of the project is affected by the issue.
+.TP
+.B \-A \fIassignee\fP
+Assigne the issue to \fIassignee\fP.
+.TP
+.B \-b \fIbranch\fP
+Associate the branch \fIbranch\P with a ticket.
+.TP
+.B \-c \fIcategory\fP
+Add the category \fIcategory\fP to the ticket.
+.TP
+.B \-C \fIcve-number\fP
+Add the CVE number \fIcve-number\fP to the ticket.
+.TP
+.B \-d \fIdue-date\fP
+Set the due date for the ticket to \fIdue-date\fP.
+\fIdue-date\fP sould be in seconds since January 1, 1970.
+.TP
+.B \-m \fImilestone\fP
+Associate a milestone with the ticket.
+.TP
+.B \-p \fIprogress-branch\fP
+Declare that you are working on fixing the issue
+on the branch \fIprogress-branch\fP.
+.TP
+.B \-s \fIseverity\fP
+The the severity of the issue to \fIseverity\fP.
+.TP
+.B \-S \fIstatus\fP
+The the status of the issue to \fIstatus\fP.
+.TP
+.B \-u \fIfirst-unaffected[..last-unaffected]\fP
+Declare that version \fIfirst-unaffected\fP, or the
+version range \fIfirst-unaffected\fP to \fIlast-unaffected\fP,
+of the project is not affected by the issue.
+.TP
+.B \-v
+Declare your interest seeing the issue resolved.
+.TP
+.B \-w
+Open \fIeditor\fP for writing a comment.
+.TP
+.B \-W \fIcomment\fP
+Add the comment \fIcomment\fP.
+.SH AUTHORS
+See the LICENSE file for the authors.
+.SH LICENSE
+See the LICENSE file for the terms of redistribution.
+.SH BUGS
+Please report them.
+
