@@ -1,2 +1,4 @@
 sit-write  Write a comment
 sit-read   Read comments
+sit-push   Push changes to server
+sit-pull   Pull changes from server
