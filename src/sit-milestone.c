@@ -35,9 +35,33 @@ char *argv0;
 int
 main(int argc, char *argv[])
 {
-	argv0 = *argv;
+	char *command;
+	int opt_critical = 0, opt_print_id = 0;
+	char *ticket_id = NULL;
+	size_t milestone_count = 0;
+	char **milestones = NULL;
 
 	HELP("Add, remove or list milestones an issue is listed under");
+
+	ARG_BEGIN(argv0, command) {
+		ARG_USAGE;
+		ARG_BOOLEAN('c', opt_critical);
+		ARG_BOOLEAN('p', opt_print_id);
+	ARG_NONOPT:
+		if (!ticket_id) {
+			ticket_id = *argv;
+		} else {
+			if (!milestones) {
+				milestones = malloc(argc * sizeof(char*));
+				if (!milestones) {
+					perror(argv0);
+					return EXIT_FAILURE;
+				}
+			}
+			milestones[milestone_count++] = *argv;
+		}
+		break;
+	} ARG_END;
 
 	return EXIT_SUCCESS;
 }
