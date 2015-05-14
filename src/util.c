@@ -148,13 +148,19 @@ int test_help(int argc, char *argv[])
 }
 
 
-void usage(char *source_file)
+void usage(char *source_file, int open_manpage)
 {
 	char command[128];
 	snprintf(command, strlen(source_file) - 1, "%s", source_file);
 
-	execlp("man", "man", strrchr(command, '/') + 1, NULL);
-	perror(argv0);
-	exit(EXIT_FAILURE);
+	if (open_manpage) {
+		execlp("man", "man", strrchr(command, '/') + 1, NULL);
+		perror(argv0);
+		exit(EXIT_FAILURE);
+	} else {
+		fprintf(stderr,
+			"%s: Invalid usage, see `man 1 %s` for more information.\n",
+			argv0, strrchr(command, '/') + 1);
+	}
 }
 

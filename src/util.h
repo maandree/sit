@@ -28,18 +28,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 
 #include "arg.h"
 
 
 
+#define USAGE() \
+	usage(__FILE__, 0); \
+	goto fail_silent
+
 #define HELP(TEXT) \
 	(strcmp(argv[0], "sit") ? \
-	 (test_help(argc, argv) ? (usage(__FILE__), 0) : 0) : \
+	 (test_help(argc, argv) ? (usage(__FILE__, 1), 0) : 0) : \
 	 (fprintf(stderr, "%s%s\n", argv[1], TEXT), exit(EXIT_SUCCESS), 0))
 
 #define ARG_USAGE \
-	default: usage(__FILE__); break
+	default: USAGE(); break
 
 #define ARG_BOOLEAN(flag, var) \
 	case flag: var = 1; break
@@ -76,11 +81,41 @@
 	}
 
 
+#define CMD_TEST(command, cmd, fail_condition) \
+	(!strcmp(command, cmd) && !(fail_condition))
+
+
+#define FAIL_TEST(r) \
+	if (r) { \
+		if (errno) \
+			goto fail; \
+		else \
+			goto fail_silent; \
+	}
+
+
+#define DONE_MAIN \
+	errno = 0; \
+	fail: \
+	{ \
+		int ret_ = errno ? EXIT_SUCCESS : EXIT_FAILURE; \
+		if (errno) \
+			perror(argv0); \
+		goto fail_cleaup; \
+	fail_silent: \
+		ret_ = EXIT_FAILURE; \
+	fail_cleaup:
+
+#define DONE \
+		return ret_; \
+	}
+
+
 
 char *generate_uuid(void);
 char *spawn_read(char *const argv[], int *success);
 int test_help(int argc, char *argv[]);
-void usage(char *source_file);
+void usage(char *source_file, int open_manpage);
 
 
 #endif

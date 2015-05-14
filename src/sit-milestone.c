@@ -29,21 +29,50 @@
 
 
 
+#define CMD(a, b)  CMD_TEST(command, a, (b) || !ticket_id)
+
+
+
 char *argv0;
+
+static int opt_critical = 0, opt_print_id = 0;
+static char *ticket_id = NULL;
+static size_t milestone_count = 0;
+static char **milestones = NULL;
+
+
+
+static int
+add_milestones(void)
+{
+	return 1;
+}
+
+
+static int
+remove_milestones(void)
+{
+	return 1;
+}
+
+
+static int
+list_milestones(void)
+{
+	return 1;
+}
 
 
 int
 main(int argc, char *argv[])
 {
 	char *command;
-	int opt_critical = 0, opt_print_id = 0;
-	char *ticket_id = NULL;
-	size_t milestone_count = 0;
-	char **milestones = NULL;
+	int r = 0;
 
 	HELP("Add, remove or list milestones an issue is listed under");
 
-	ARG_BEGIN(argv0, command) {
+	/* Parse command line. */
+	ARG_BEGIN (argv0, command) {
 		ARG_USAGE;
 		ARG_BOOLEAN('c', opt_critical);
 		ARG_BOOLEAN('p', opt_print_id);
@@ -54,8 +83,7 @@ main(int argc, char *argv[])
 			if (!milestones) {
 				milestones = malloc(argc * sizeof(char*));
 				if (!milestones) {
-					perror(argv0);
-					return EXIT_FAILURE;
+					goto fail;
 				}
 			}
 			milestones[milestone_count++] = *argv;
@@ -63,6 +91,21 @@ main(int argc, char *argv[])
 		break;
 	} ARG_END;
 
-	return EXIT_SUCCESS;
+	/* Select action. */
+	if (CMD("add", opt_print_id)) {
+		r = add_milestones();
+	} else if (CMD("remove", opt_print_id)) {
+		r = remove_milestones();
+	} else if (CMD("list", opt_critical || milestone_count)) {
+		r = list_milestones();
+	} else {
+		USAGE();
+	}
+	FAIL_TEST(r);
+
+	/* Return and cleanup. */
+	DONE_MAIN;
+	free(milestones);
+	DONE;
 }
 
