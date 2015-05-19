@@ -29,16 +29,64 @@
 
 
 
+#define CMD(a, b)  CMD_TEST(command, a, (b) || !ticket_id)
+
+
+
 char *argv0;
+
+static int opt_print_id = 0;
+static char *ticket_id = NULL;
+static char *severity = NULL;
+
+
+
+static int
+set_severity(void)
+{
+	return 1;
+}
+
+
+static int
+get_severity(void)
+{
+	return 1;
+}
 
 
 int
 main(int argc, char *argv[])
 {
-	argv0 = *argv;
+	char *command;
+	int r = 0;
 
 	HELP("Set or get the severity of an issue");
 
-	return EXIT_SUCCESS;
+	/* Parse command line. */
+	ARG_BEGIN (argv0, command) {
+		ARG_USAGE;
+		ARG_BOOLEAN('p', opt_print_id);
+	ARG_NONOPT:
+		if (!ticket_id)
+			ticket_id = *argv;
+		else
+			severity = *argv;
+		break;
+	} ARG_END;
+
+	/* Select action. */
+	if (CMD("set", opt_print_id)) {
+		r = set_severity();
+	} else if (CMD("get", 0)) {
+		r = get_severity();
+	} else {
+		USAGE();
+	}
+	FAIL_TEST(r);
+
+	/* Return and cleanup. */
+	DONE_MAIN;
+	DONE;
 }
 
